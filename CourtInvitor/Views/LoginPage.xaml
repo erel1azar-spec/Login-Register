@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:m="clr-namespace:CourtInvitor.Models"
     xmlns:vm="clr-namespace:CourtInvitor.ViewModels"
-    x:DataType="vm:MainPageVM"
+    x:DataType="vm:LogInVM"
     IsBusy="{Binding IsBusy}">
     <VerticalStackLayout Margin="10" Spacing="25">
         <Border
@@ -15,7 +15,7 @@
             StrokeThickness="1">
             <Entry 
                 Placeholder="{x:Static m:Strings.Name}" 
-                Text="{Binding Name}" />
+                Text="{Binding UserName}" />
         </Border>
         <Border
                 Padding="10"
@@ -28,7 +28,7 @@
             VerticalOptions="Center">
                 <Entry 
                     Placeholder="{x:Static m:Strings.Password}" 
-                    Text="{Binding Pass}"
+                    Text="{Binding Password}"
                     IsPassword="{Binding IsPassword}"/>
                 <Button
                 BackgroundColor="Transparent"

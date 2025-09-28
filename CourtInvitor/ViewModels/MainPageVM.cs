@@ -4,33 +4,10 @@ using System.Windows.Input;
 
 namespace CourtInvitor.ViewModels
 {
-    internal partial class MainPageVM:ObservableObject
+    internal partial class MainPageVM
     {
         private readonly User user = new();
         public ICommand RegisterCommand { get; }
-        public ICommand LoginCommand { get; }
-        public ICommand ToggleIsPasswordCommand { get; }
-        public bool IsBusy { get; set; } = false;
-        public bool IsPassword { get; set; } = true;
-
-        public string UserName
-        {
-            get => user.UserName;
-            set
-            {
-                user.UserName = value;
-                (LoginCommand as Command)?.ChangeCanExecute();
-            }
-        }
-        public string Password
-        {
-            get => user.Password;
-            set
-            {
-                user.Password = value;
-                (LoginCommand as Command)?.ChangeCanExecute();
-            }
-        }
 
         public bool CanRegister()
         {
@@ -69,30 +46,10 @@ namespace CourtInvitor.ViewModels
                 (RegisterCommand as Command)?.ChangeCanExecute();
             }
         }
-        private void ToggleIsPassword()
-        {
-            IsPassword = !IsPassword;
-            OnPropertyChanged(nameof(IsPassword));
-        }
 
-        private async Task Login()
-        {
-            IsBusy = true;
-            OnPropertyChanged(nameof(IsBusy));
-            await Task.Delay(5000);
-            IsBusy = false;
-            OnPropertyChanged(nameof(IsBusy));
-        }
-
-        private bool CanLogin()
-        {
-            return (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password));
-        }
         public MainPageVM()
         {
             RegisterCommand = new Command(Register, CanRegister);
-            LoginCommand = new Command(async () => await Login(), CanLogin);
-            ToggleIsPasswordCommand = new Command(ToggleIsPassword);
         }
     }
 }

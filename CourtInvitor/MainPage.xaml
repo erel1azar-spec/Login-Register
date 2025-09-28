@@ -20,8 +20,7 @@
             Stroke="Olive"
             StrokeShape="RoundRectangle 8"
             StrokeThickness="1">
-            <Entry Placeholder="{x:Static m:Strings.Password}" Text="{Binding Pass}"
-            IsPassword="{Binding IsPassword}"/>
+            <Entry Placeholder="{x:Static m:Strings.Password}" Text="{Binding Pass}"/>
         </Border>
         <Border
             Padding="10"
