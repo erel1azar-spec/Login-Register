@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CourtInvitor.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:m="clr-namespace:CourtInvitor.Models"
+    xmlns:vm="clr-namespace:CourtInvitor.ViewModels"
+    x:DataType="vm:MainPageVM">
+
+    <VerticalStackLayout Margin="10" Spacing="25">
+        <Border
+            Padding="10"
+            Stroke="Olive"
+            StrokeShape="RoundRectangle 8"
+            StrokeThickness="1">
+            <Entry Placeholder="{x:Static m:Strings.Name}" Text="{Binding Name}" />
+        </Border>
+        <Border
+            Padding="10"
+            Stroke="Olive"
+            StrokeShape="RoundRectangle 8"
+            StrokeThickness="1">
+            <Entry Placeholder="{x:Static m:Strings.Password}" Text="{Binding Pass}"
+            IsPassword="{Binding IsPassword}"/>
+        </Border>
+        <Border
+            Padding="10"
+            Stroke="Olive"
+            StrokeShape="RoundRectangle 8"
+            StrokeThickness="1">
+            <Entry Placeholder="{x:Static m:Strings.Email}" Text="{Binding Email}"/>
+        </Border>
+
+        <Button Command="{Binding RegisterCommand}" Text="{x:Static m:Strings.Register}" />
+    </VerticalStackLayout>
+</ContentPage>
